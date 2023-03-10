@@ -15,6 +15,11 @@ private static final String USER_NAME = "root";
 private static final String PASSWORD = "";
 private static Connection con;
     
+/**
+ * creates a database in mySQL server
+ * @param dbName name of database
+ * @return the Connection object
+ */
     public static Connection createAndConnect(String dbName){
         
     String dbAddress = "jdbc:mysql://localhost:3306/" + dbName + "?createDatabaseIfNotExist=true";
@@ -29,6 +34,6 @@ private static Connection con;
 }
 
     public static void main(String[] args) {
-        System.out.println(createAndConnect("Good"));
+        System.out.println(createAndConnect("myDatabase"));
     }
 }

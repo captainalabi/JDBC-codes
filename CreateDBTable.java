@@ -10,6 +10,10 @@ public class CreateDBTable {
    static final String USER = "root";
    static final String PASS = "";
 
+   /**
+ * creates a db table in the given database url
+ * @param tableName name of table you want to create
+ */
    public static void createTable(String tableName){
    // Open a connection
       try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
