@@ -10,13 +10,13 @@ public class CreateDBTable {
    static final String USER = "root";
    static final String PASS = "";
 
-   public static void main(String[] args) {
-      // Open a connection
+   public static void createTable(String tableName){
+   // Open a connection
       try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
          Statement stmt = conn.createStatement();
       ) {		      
-          String sql = "CREATE TABLE IF NOT EXISTS USER " +
-                   "(full_name INTEGER not NULL, " +
+          String sql = "CREATE TABLE IF NOT EXISTS " + tableName +
+                   " (full_name INTEGER not NULL, " +
                    " pin VARCHAR(255), " + 
                    " email VARCHAR(255), "  + 
                    " PRIMARY KEY ( email ))"; 
@@ -24,7 +24,11 @@ public class CreateDBTable {
          stmt.executeUpdate(sql);
          System.out.println("Created table in given database...");   	  
       } catch (SQLException e) {
-         e.printStackTrace();
+          System.out.println(e.getMessage());
       } 
+   }
+   
+   public static void main(String[] args) {
+       createTable("myTable");
    }
 }
